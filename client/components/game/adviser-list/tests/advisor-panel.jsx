@@ -3,17 +3,17 @@ import {expect} from 'chai';
 import {shallow} from 'enzyme';
 const {describe, it} = global;
 
-import { default as AdvisorPanel } from '../advisor-panel.jsx';
+import { default as AdviserPanel } from '../adviser-list.jsx';
 
-describe('Advisor Panel', () => {
-  const advisors1 = [
+describe('Adviser Panel', () => {
+  const advisers1 = [
     {
       name: 'Ivan',
       dialog: 'Get to work'
     }
   ];
 
-  const advisors2 = [
+  const advisers2 = [
     {
       name: 'Ivan',
       dialog: 'Get to work'
@@ -24,25 +24,25 @@ describe('Advisor Panel', () => {
     }
   ];
 
-  it( 'has one advisor', () => {
-    const wrapper = shallow(<AdvisorPanel advisors={advisors1} />);
+  it( 'has one adviser', () => {
+    const wrapper = shallow(<AdviserList advisers={advisers1} />);
     expect(wrapper.contains('Ivan')).to.equal(true);
     expect(wrapper.contains('Get to work')).to.equal(true);
     expect(wrapper.contains('Ryan')).to.equal(false);
     expect(wrapper.contains('Hey there')).to.equal(false);
   });
 
-  it( 'has two advisors', () => {
-    const wrapper = shallow(<AdvisorPanel advisors={advisors2} />);
+  it( 'has two advisers', () => {
+    const wrapper = shallow(<AdviserList advisers={advisers2} />);
     expect(wrapper.contains('Ivan')).to.equal(true);
     expect(wrapper.contains('Get to work')).to.equal(true);
     expect(wrapper.contains('Ryan')).to.equal(true);
     expect(wrapper.contains('Hey there')).to.equal(true);
   });
 
-  it( 'has no advisors', () => {
-    const wrapper = shallow(<AdvisorPanel />);
+  it( 'has no advisers', () => {
+    const wrapper = shallow(<AdviserList />);
 
-    expect(wrapper.contains('No advisors')).to.equal(true);
+    expect(wrapper.contains('No advisers')).to.equal(true);
   });
 });
